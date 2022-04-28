@@ -1,6 +1,7 @@
 <template>
     <div class="w-25">
         <CreateComponent></CreateComponent>
+        <IndexComponent></IndexComponent>
         <div>
             <!--            <table class="table">-->
             <!--                <thead>-->
@@ -26,14 +27,14 @@
 </template>
 
 <script>
-import SinglePostComponent from "./SinglePostComponent";
 import CreateComponent from "./CreateComponent";
+import IndexComponent from "./IndexComponent";
 
 export default {
     name: "PostComponent",
     components: {
-        SinglePostComponent,
         CreateComponent,
+        IndexComponent,
     },
 }
 </script>
