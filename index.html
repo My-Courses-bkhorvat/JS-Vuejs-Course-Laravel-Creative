@@ -8,6 +8,10 @@
     <title>JAVASCRIPT</title>
 </head>
 <body>
+<div class="box">
+    Lorem
+</div>
+<button class="btn" onclick="sayHello()">Click me</button>
 
 </body>
 </html>
@@ -15,62 +19,10 @@
 
 </style>
 <script>
-    let someString = 'string';
-    let someNum = 100;
-    let someBoolean = true;
-    let someNull = null;
-    let someNan = NaN;
-    let someUndefined = undefined;
+    let $box = document.querySelector('.box')
+    console.log($box);
 
-    console.log(NaN);
-    console.log(100/'asmkdkadms'); //NaN
-
-    let someArray = ['dsas', 3123, true];
-    console.log(someArray);
-
-    let someObj = { //object
-        someKey1: 100,
-        someKey2: 'sads',
-        someKey3: true,
-        someKey4: NaN,
-        someKey5: undefined,
-        someArray: ['dsas', 3123, true]
+    function sayHello() {
+        $box.remove()
     }
-    console.log(someObj);
-
-    console.log(someFunction()); // можна використовувати по всьому файлі
-    function someFunction() {
-        return 'some string from function'
-    }
-
-
-    let anotherFunc = function () {
-        return 'this another function'
-    }
-    console.log(anotherFunc); // можна визвати тільки після обявлення такої функції
-
-    if (!someBoolean){
-        console.log('Hello!')
-    }else {
-        console.log('Not Hello!')
-    }
-
-    let person = someBoolean ? 'Ivan' : 'Victor'
-    console.log(person)
-
-    let someArr = ['Ivan', 'Victor', 'Ekaterina']
-    console.log(someArr)
-
-    someArr.forEach(function (item, index) {
-        console.log(item, index)
-    });
-
-    for (let someObjKey in someObj) {
-        console.log(someObj[someObjKey])
-    }
-
-    console.log(Object.entries(someObj));
-    Object.entries(someObj).forEach(function (item) {
-        console.log(item);
-    });
 </script>
