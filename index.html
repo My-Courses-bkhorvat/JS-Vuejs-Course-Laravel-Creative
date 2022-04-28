@@ -15,11 +15,37 @@
 
 </style>
 <script>
-    var sameString = 'string';
+    let someString = 'string';
+    let someNum = 100;
+    let someBoolean = true;
+    let someNull = null;
+    let someNan = NaN;
+    let someUndefined = undefined;
 
-    let sameString2 = 'string 2';
-    const sameString3 = 'string 3';
-    sameString2 = 'another some string 4'
+    console.log(NaN);
+    console.log(100/'asmkdkadms'); //NaN
 
-    console.log(sameString2);
+    let someArray = ['dsas', 3123, true];
+    console.log(someArray);
+
+    let someObj = { //object
+        someKey1: 100,
+        someKey2: 'sads',
+        someKey3: true,
+        someKey4: NaN,
+        someKey5: undefined,
+        someArray: ['dsas', 3123, true]
+    }
+    console.log(someObj);
+
+    console.log(someFunction()); // можна використовувати по всьому файлі
+    function someFunction() {
+        return 'some string from function'
+    }
+
+
+    let anotherFunc = function () {
+        return 'this another function'
+    }
+    console.log(anotherFunc); // можна визвати тільки після обявлення такої функції
 </script>
