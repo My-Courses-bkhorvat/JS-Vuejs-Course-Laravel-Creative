@@ -2,6 +2,7 @@
     <div>
         Single Post
         Name: {{ name1 }}
+        Job: {{ vasyaJob }}
         <button @click="sayHallo">Hello</button>
         <button @click="sayHi">Hi</button>
 
@@ -35,6 +36,11 @@ export default {
         },
         sayHi() {
             console.log('Hi')
+        },
+    },
+    computed: {
+        vasyaJob() {
+            return this.name1 + 'rabotaet w bulochnoi'
         },
     }
 }
