@@ -5326,39 +5326,19 @@ __webpack_require__.r(__webpack_exports__);
   name: "SinglePostComponent",
   data: function data() {
     return {
-      persons: [{
-        id: 1,
-        name: 'Vasya',
-        age: 20,
-        job: 'coach'
-      }, {
-        id: 2,
-        name: 'Elena',
-        age: 17,
-        job: 'rest'
-      }, {
-        id: 3,
-        name: 'Petr',
-        age: 34,
-        job: 'seller'
-      }, {
-        id: 4,
-        name: 'Ksusha',
-        age: 31,
-        job: 'traveler'
-      }, {
-        id: 5,
-        name: 'Bogdan',
-        age: 28,
-        job: 'programmer'
-      }]
+      persons: null
     };
   },
-  computed: {
-    personsAgeMoreTwenty: function personsAgeMoreTwenty() {
-      return this.persons.filter(function (person) {
-        return person.age > 20;
-      });
+  mounted: function mounted() {
+    this.getPersons();
+  },
+  methods: {
+    getPersons: function getPersons() {
+      var _this = this;
+
+      axios.get('/persons').then(function (data) {
+        _this.persons = data.data;
+      })["catch"](function (error) {})["finally"]({});
     }
   }
 });
@@ -28065,7 +28045,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.personsAgeMoreTwenty, function (person) {
+          _vm._l(_vm.persons, function (person) {
             return _c("tr", [
               _c("th", { attrs: { scope: "row" } }, [
                 _vm._v(_vm._s(person.id)),
