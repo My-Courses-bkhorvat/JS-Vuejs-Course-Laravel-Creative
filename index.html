@@ -48,4 +48,29 @@
         return 'this another function'
     }
     console.log(anotherFunc); // можна визвати тільки після обявлення такої функції
+
+    if (!someBoolean){
+        console.log('Hello!')
+    }else {
+        console.log('Not Hello!')
+    }
+
+    let person = someBoolean ? 'Ivan' : 'Victor'
+    console.log(person)
+
+    let someArr = ['Ivan', 'Victor', 'Ekaterina']
+    console.log(someArr)
+
+    someArr.forEach(function (item, index) {
+        console.log(item, index)
+    });
+
+    for (let someObjKey in someObj) {
+        console.log(someObj[someObjKey])
+    }
+
+    console.log(Object.entries(someObj));
+    Object.entries(someObj).forEach(function (item) {
+        console.log(item);
+    });
 </script>
