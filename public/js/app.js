@@ -5305,32 +5305,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SinglePostComponent",
   data: function data() {
     return {
-      name1: 'Vasia',
-      age: 20,
-      "boolean": false,
-      someNull: null,
-      arr: [[]],
-      obj: {
-        personName: 'Ivan'
-      }
+      persons: [{
+        id: 1,
+        name: 'Vasya',
+        age: 20,
+        job: 'coach'
+      }, {
+        id: 2,
+        name: 'Elena',
+        age: 17,
+        job: 'rest'
+      }, {
+        id: 3,
+        name: 'Petr',
+        age: 34,
+        job: 'seller'
+      }]
     };
-  },
-  methods: {
-    sayHallo: function sayHallo() {
-      console.log('Hello');
-    },
-    sayHi: function sayHi() {
-      console.log('Hi');
-    }
-  },
-  computed: {
-    vasyaJob: function vasyaJob() {
-      return this.name1 + 'rabotaet w bulochnoi';
-    }
   }
 });
 
@@ -28028,19 +28040,51 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v(
-      "\n    Single Post\n    Name: " +
-        _vm._s(_vm.name1) +
-        "\n    Job: " +
-        _vm._s(_vm.vasyaJob) +
-        "\n    "
-    ),
-    _c("button", { on: { click: _vm.sayHallo } }, [_vm._v("Hello")]),
+    _c("h1", [_vm._v("Single Post")]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.sayHi } }, [_vm._v("Hi")]),
+    _c("div", [
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.persons, function (person) {
+            return _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(person.id)),
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.age))]),
+              _vm._v(" "),
+              _c("td", [_vm._v("@" + _vm._s(person.job))]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

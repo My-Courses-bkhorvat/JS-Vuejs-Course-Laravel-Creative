@@ -1,10 +1,27 @@
 <template>
     <div>
-        Single Post
-        Name: {{ name1 }}
-        Job: {{ vasyaJob }}
-        <button @click="sayHallo">Hello</button>
-        <button @click="sayHi">Hi</button>
+        <h1>Single Post</h1>
+
+        <div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Job</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="person in persons">
+                    <th scope="row">{{ person.id}}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>@{{ person.job }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </template>
@@ -16,33 +33,28 @@ export default {
 
     data() {
         return {
-            name1: 'Vasia',
-            age: 20,
-            boolean: false,
-            someNull: null,
-            arr: [
-                [
-
-                ]
-            ],
-            obj: {
-                personName: 'Ivan'
-            }
+            persons: [
+                {
+                    id: 1,
+                    name: 'Vasya',
+                    age: 20,
+                    job: 'coach'
+                },
+                {
+                    id: 2,
+                    name: 'Elena',
+                    age: 17,
+                    job: 'rest'
+                },
+                {
+                    id: 3,
+                    name: 'Petr',
+                    age: 34,
+                    job: 'seller'
+                },
+            ]
         }
     },
-    methods: {
-        sayHallo() {
-            console.log('Hello')
-        },
-        sayHi() {
-            console.log('Hi')
-        },
-    },
-    computed: {
-        vasyaJob() {
-            return this.name1 + 'rabotaet w bulochnoi'
-        },
-    }
 }
 </script>
 
