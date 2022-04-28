@@ -5301,6 +5301,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SinglePostComponent",
   data: function data() {
@@ -5314,6 +5317,14 @@ __webpack_require__.r(__webpack_exports__);
         personName: 'Ivan'
       }
     };
+  },
+  methods: {
+    sayHallo: function sayHallo() {
+      console.log('Hello');
+    },
+    sayHi: function sayHi() {
+      console.log('Hi');
+    }
   }
 });
 
@@ -28011,7 +28022,10 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n    Single Post\n    Name: " + _vm._s(_vm.name1) + "\n"),
+    _vm._v("\n    Single Post\n    Name: " + _vm._s(_vm.name1) + "\n    "),
+    _c("button", { on: { click: _vm.sayHallo } }, [_vm._v("Hello")]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.sayHi } }, [_vm._v("Hi")]),
   ])
 }
 var staticRenderFns = []

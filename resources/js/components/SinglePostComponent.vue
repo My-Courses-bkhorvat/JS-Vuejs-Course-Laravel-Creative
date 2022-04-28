@@ -2,6 +2,9 @@
     <div>
         Single Post
         Name: {{ name1 }}
+        <button @click="sayHallo">Hello</button>
+        <button @click="sayHi">Hi</button>
+
     </div>
 </template>
 
@@ -26,6 +29,14 @@ export default {
             }
         }
     },
+    methods: {
+        sayHallo() {
+            console.log('Hello')
+        },
+        sayHi() {
+            console.log('Hi')
+        },
+    }
 }
 </script>
 
