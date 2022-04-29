@@ -37,6 +37,9 @@ export default {
                 console.log(res);
             })
         }
+    },
+    mounted() {
+        this.$parent.$refs.index.indexLog()
     }
 }
 </script>

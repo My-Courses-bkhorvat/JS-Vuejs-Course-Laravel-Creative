@@ -30,14 +30,18 @@
             </template>
             </tbody>
         </table>
+        <SomeComponent></SomeComponent>
     </div>
 </template>
 
 <script>
+import SomeComponent from "./SomeComponent";
 
 export default {
     name: "IndexComponent",
-
+    components:{
+        SomeComponent
+    },
     data() {
         return {
             people: null,
@@ -50,6 +54,7 @@ export default {
     },
     mounted() {
         this.getPeople()
+        this.$parent.parentLog()
     },
     methods: {
         getPeople() {
@@ -80,7 +85,9 @@ export default {
         isEdit(id) {
             return this.editePersonId === id
         },
-
+        indexLog() {
+            console.log('this is index componetn');
+        },
 
     }
 }
