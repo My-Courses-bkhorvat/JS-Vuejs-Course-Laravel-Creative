@@ -11,6 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
 //
 //
 //
@@ -22,6 +23,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Edit",
   data: function data() {
@@ -42,6 +44,17 @@ __webpack_require__.r(__webpack_exports__);
         _this.name = res.data.name;
         _this.age = res.data.age;
         _this.job = res.data.job;
+      });
+    },
+    update: function update() {
+      axios.patch('/api/people/' + this.$route.params.id, {
+        name: this.name,
+        age: this.age,
+        job: this.job
+      }).then(function (res) {
+        _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+          name: 'person.show'
+        });
       });
     }
   }
@@ -207,23 +220,28 @@ var render = function () {
         }),
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass: "mb-3",
+          on: {
+            click: function ($event) {
+              $event.preventDefault()
+              return _vm.update.apply(null, arguments)
+            },
+          },
+        },
+        [
+          _c("input", {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit", value: "Update" },
+          }),
+        ]
+      ),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-3" }, [
-      _c("input", {
-        staticClass: "btn btn-primary",
-        attrs: { type: "submit", value: "Update" },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
