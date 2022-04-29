@@ -43,6 +43,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     }
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return this.name && this.age && this.job;
+    }
   }
 });
 
@@ -205,24 +210,18 @@ var render = function () {
       }),
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "mb-3",
+    _c("div", { staticClass: "mb-3" }, [
+      _c("input", {
+        staticClass: "btn btn-primary",
+        attrs: { disabled: !_vm.isDisabled, type: "submit", value: "Add" },
         on: {
           click: function ($event) {
             $event.preventDefault()
             return _vm.store.apply(null, arguments)
           },
         },
-      },
-      [
-        _c("input", {
-          staticClass: "btn btn-primary",
-          attrs: { type: "submit", value: "Add" },
-        }),
-      ]
-    ),
+      }),
+    ]),
   ])
 }
 var staticRenderFns = []
