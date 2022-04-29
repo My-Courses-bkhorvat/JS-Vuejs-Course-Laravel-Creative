@@ -30,7 +30,7 @@
             </template>
             </tbody>
         </table>
-        <SomeComponent></SomeComponent>
+        <SomeComponent :obj="obj"></SomeComponent>
     </div>
 </template>
 
@@ -49,6 +49,11 @@ export default {
             name: '',
             age: null,
             job: '',
+            obj: {
+                color: 'yellow',
+                number: 50,
+                isPublished: false
+            }
 
         }
     },

@@ -5372,7 +5372,12 @@ __webpack_require__.r(__webpack_exports__);
       editePersonId: null,
       name: '',
       age: null,
-      job: ''
+      job: '',
+      obj: {
+        color: 'yellow',
+        number: 50,
+        isPublished: false
+      }
     };
   },
   mounted: function mounted() {
@@ -5500,11 +5505,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SameComponent",
   data: function data() {
     return {};
   },
+  props: ['obj'],
   mounted: function mounted() {
     this.$parent.$parent.parentLog();
   },
@@ -28596,7 +28607,7 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _c("SomeComponent"),
+      _c("SomeComponent", { attrs: { obj: _vm.obj } }),
     ],
     1
   )
@@ -28678,7 +28689,24 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("div", [
+      _c("div", [_vm._v("Color: " + _vm._s(_vm.obj.color))]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v(
+          "Number: " + _vm._s(_vm.obj.number > 10 ? "more 10" : "less 10")
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v(
+          "Is published: " +
+            _vm._s(_vm.obj.isPublished ? "Published" : "Not published")
+        ),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
