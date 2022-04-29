@@ -8,6 +8,10 @@ export default new VueRouter({
     mode: 'history',
 
     routes: [
+        {
+            path: '/people', component: function () {return import('./components/Person/Index')},
+            name: 'person.index'
+        }
     ]
 })
 
