@@ -36,6 +36,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "index",
   data: function data() {
@@ -52,6 +58,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/people').then(function (res) {
         _this.people = res.data;
+      });
+    },
+    deletePerson: function deletePerson(id) {
+      var _this2 = this;
+
+      axios["delete"]('/api/people/' + id).then(function (res) {
+        _this2.getPeople();
       });
     }
   }
@@ -151,7 +164,21 @@ var render = function () {
         "tbody",
         _vm._l(_vm.people, function (person) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(person.name))]),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: { name: "person.show", params: { id: person.id } },
+                    },
+                  },
+                  [_vm._v(_vm._s(person.name))]
+                ),
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(person.age))]),
             _vm._v(" "),
@@ -172,6 +199,23 @@ var render = function () {
               ],
               1
             ),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-outline-danger",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.deletePerson(person.id)
+                    },
+                  },
+                },
+                [_vm._v("Delete")]
+              ),
+            ]),
           ])
         }),
         0
@@ -193,6 +237,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")]),
       ]),
     ])
   },
