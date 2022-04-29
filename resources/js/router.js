@@ -13,9 +13,13 @@ export default new VueRouter({
             name: 'person.index'
         },
         {
-            path: '/create', component: () => import('./components/Person/Create'),
+            path: '/people/create', component: () => import('./components/Person/Create'),
             name: 'person.create'
-        }
+        },
+        {
+            path: '/people/:id/edit', component: () => import('./components/Person/Edit'),
+            name: 'person.edit'
+        },
     ]
 })
 
