@@ -7,6 +7,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Age</th>
                 <th scope="col">Job</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -17,6 +18,7 @@
                     <td>{{person.age}}</td>
                     <td>{{person.job}}</td>
                     <td><a href="#" @click.prevent="changeEditPersonId(person.id, person.name, person.age, person.job)" class="btn btn-success">Edit</a></td>
+                    <td><a href="#" @click.prevent="deletePerson(person.id)" class="btn btn-danger">Delete</a></td>
                 </tr>
                 <tr :class="isEdit(person.id) ? '': 'd-none'">
                     <th scope="row">{{person.id}}</th>
@@ -59,6 +61,12 @@ export default {
         updatePerson(id) {
             this.editePersonId = null
             axios.patch(`/api/people/${id}`, {name: this.name, age: this.age, job: this.job})
+                .then(res => {
+                    this.getPeople()
+                })
+        },
+        deletePerson(id) {
+            axios.delete(`/api/people/${id}`)
                 .then(res => {
                     this.getPeople()
                 })

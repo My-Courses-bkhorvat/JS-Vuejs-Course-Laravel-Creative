@@ -1,5 +1,5 @@
 <template>
-    <div class="w-25">
+    <div>
         <CreateComponent></CreateComponent>
         <IndexComponent></IndexComponent>
         <div>

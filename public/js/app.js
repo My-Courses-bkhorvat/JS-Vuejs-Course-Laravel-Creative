@@ -5353,6 +5353,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "IndexComponent",
   data: function data() {
@@ -5385,6 +5387,13 @@ __webpack_require__.r(__webpack_exports__);
         job: this.job
       }).then(function (res) {
         _this2.getPeople();
+      });
+    },
+    deletePerson: function deletePerson(id) {
+      var _this3 = this;
+
+      axios["delete"]("/api/people/".concat(id)).then(function (res) {
+        _this3.getPeople();
       });
     },
     changeEditPersonId: function changeEditPersonId(id, name, age, job) {
@@ -28192,7 +28201,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "w-25" }, [
     _c("div", { staticClass: "mb-3" }, [
       _c("input", {
         directives: [
@@ -28343,6 +28352,23 @@ var render = function () {
                     [_vm._v("Edit")]
                   ),
                 ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.deletePerson(person.id)
+                        },
+                      },
+                    },
+                    [_vm._v("Delete")]
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _c("tr", { class: _vm.isEdit(person.id) ? "" : "d-none" }, [
@@ -28461,6 +28487,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Age")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")]),
       ]),
     ])
   },
@@ -28489,7 +28517,6 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-25" },
     [
       _c("CreateComponent"),
       _vm._v(" "),
